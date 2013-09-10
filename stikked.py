@@ -3,7 +3,7 @@ import os, urllib, re
 
 class stikked(sublime_plugin.TextCommand):
     #Run when plugin starts
-    def run(self, edit):
+    def run(self, edit, args):
 
         #Load the user's settings
         s = sublime.load_settings('Stikked.sublime-settings')
@@ -13,8 +13,14 @@ class stikked(sublime_plugin.TextCommand):
         #Get the censored view of our current file
         text = self.get_text()
 
+        #decide if private
+        if args["private"] == "true"
+            private = 1
+        else
+            private = 0
+
         #Encode and send out data
-        data = urllib.urlencode( {"title":self.cur_file(), "text":text, "name":author, "lang":self.cur_syntax()} )
+        data = urllib.urlencode( {"title":self.cur_file(), "text":text, "name":author, "lang":self.cur_syntax(), "private":private } )
         u = urllib.urlopen(url, data)
 
         #Set the url to the clipboard

@@ -1,6 +1,0 @@
-{
-    // save before running commands
-    "author": "jacob",
-    "url": "http://www.mastel.org/stikked/api/create",
-    "kill": [ ["[a-zA-Z]*[0-9]{10,10}", "password"], ["(root)", "user"] ]
-}

@@ -14,7 +14,7 @@ class stikked(sublime_plugin.TextCommand):
         text = self.get_text()
 
         #decide if private
-        if args["private"] == "true"
+        if args['private'] = 'true'
             private = 1
         else
             private = 0

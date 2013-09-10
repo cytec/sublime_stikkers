@@ -1,7 +1,3 @@
 [
-    { "caption": "Stikked: post", "command": "stikked", "args": {"private": "false"} },
-    { "caption": "Stikked: post private", "command": "stikked", "args": {"private": "true"} },
-    { "caption": "Stikked: reply to post", "command": "stikked", "args": {"private": "false", "reply":"true" } },
-    { "caption": "Stikked: reply to post private", "command": "stikked", "args": {"private": "true", "reply":"true" } }
-
+    { "caption": "Stikked: post", "command": "stikked", "args": {"private": "false"} }
 ]

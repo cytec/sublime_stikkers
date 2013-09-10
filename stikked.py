@@ -3,7 +3,7 @@ import os, urllib, re
 
 class stikked(sublime_plugin.TextCommand):
     #Run when plugin starts
-    def run(self, edit, args):
+    def run(self, edit, **args):
 
         #Load the user's settings
         s = sublime.load_settings('Stikked.sublime-settings')

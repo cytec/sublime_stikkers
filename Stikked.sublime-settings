@@ -1,0 +1,13 @@
+{
+    // save before running commands
+    //the author of the given url
+    "author": "",
+
+    //complete url including http://www
+    "url": "http://www",
+
+    //Strings to replace on a given paste
+    //Example: Expression_to_remove, Replace_with
+    //Recommended for files that contain passwords or unneeded test cases
+    "kill": [ ["regexp", "replacement"], ["regexp2", "replacement2"] ]
+}

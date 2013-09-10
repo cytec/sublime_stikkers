@@ -1,0 +1,2 @@
+1. split the thread for the kill feature
+2. add authentication

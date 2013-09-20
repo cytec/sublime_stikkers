@@ -12,19 +12,8 @@ class stikked(sublime_plugin.TextCommand):
 
 		#Get the censored view of our current file
 		text = self.get_text()
-
-		#decide if private
-		if args['private'] == 'true':
-			private = 1
-		else:
-			private = 0
 		
-		if args['reply'] == 'true':
-			reply = self.view.window().show_input_panel("Reply to:", "", self.user_input, None, None)
-			reply = reply.substr(0)
-			data = urllib.urlencode( {"title":self.cur_file(), "text":text, "name":author, "lang":self.cur_syntax(), "private":private, "reply":reply } )
-		else:
-			data = urllib.urlencode( {"title":self.cur_file(), "text":text, "name":author, "lang":self.cur_syntax(), "private":private } )
+		data = urllib.urlencode( {"title":self.cur_file(), "text":text, "name":author, "lang":self.cur_syntax() } )
 			
 		#Encode and send out data
 		u = urllib.urlopen(url, data)
@@ -45,12 +34,9 @@ class stikked(sublime_plugin.TextCommand):
 	def get_text(self):
 		text = self.view.substr(sublime.Region(0, self.view.size()))
 		to_kill = sublime.load_settings('Stikked.sublime-settings').get("kill")
-		to_rep  = sublime.load_settings('Stikked.sublime-settings').get("replace")
+		#to_rep  = sublime.load_settings('Stikked.sublime-settings').get("replace")
 		
 		for rage in to_kill:
 			text = re.sub(rage[0], rage[1], text)
 		
 		return text
-
-	def user_input(self, input):
-		return input

@@ -11,8 +11,13 @@ class stikked(sublime_plugin.TextCommand):
 		url = s.get("url")
 
 		#Get the censored view of our current file
-		text = self.get_text()
-		
+		if self.view.sel()[0].begin() != self.view.sel()[0].end():
+                        text = ""
+                        for region in self.view.sel():
+                                text = text + self.view.substr(region)
+                else:
+                        text = self.get_text()
+
 		data = urllib.urlencode( {"title":self.cur_file(), "text":text, "name":author, "lang":self.cur_syntax() } )
 			
 		#Encode and send out data

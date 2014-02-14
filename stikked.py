@@ -6,7 +6,7 @@ class stikked(sublime_plugin.TextCommand):
 	def run(self, edit, **args):
 
 		#Load the user's settings
-		s = sublime.load_settings('Stikked.sublime-settings')
+		s = sublime.load_settings('stikked.sublime-settings')
 		author = s.get("author")
 		url = s.get("url")
 
@@ -38,7 +38,7 @@ class stikked(sublime_plugin.TextCommand):
 
 	def get_text(self):
 		text = self.view.substr(sublime.Region(0, self.view.size()))
-		to_kill = sublime.load_settings('Stikked.sublime-settings').get("kill")
+		to_kill = sublime.load_settings('stikked.sublime-settings').get("kill")
 		#to_rep  = sublime.load_settings('Stikked.sublime-settings').get("replace")
 		
 		for rage in to_kill:
